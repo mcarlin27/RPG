@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Create Player";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model RPG.Models.Player
+<h2>Create</h2>
+<hr />
+<h4>Add a new player</h4>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.UserId)
+    @Html.TextBoxFor(model => model.UserId)
+    <input type="submit" value="Add new player" />
+}
+<p>@Html.ActionLink("Back to index", "Index")</p>

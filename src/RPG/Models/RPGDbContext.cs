@@ -42,6 +42,10 @@ namespace RPG.Models
 
             base.OnModelCreating(builder);
         }
-        
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=RPG;integrated security=True");
+        }
+
     }
 }

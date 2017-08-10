@@ -15,6 +15,6 @@ namespace RPG.Models
         public string Name { get; set; }
         public int LocationId { get; set; }
         public virtual Location ItemLocation { get; set; }
-        public virtual List<PlayerItem> PlayerItems { get; set; }
+        public virtual ICollection<PlayerItem> PlayerItems { get; set; }
     }
 }

@@ -8,9 +8,10 @@ using RPG.Models;
 namespace RPG.Migrations
 {
     [DbContext(typeof(RPGDbContext))]
-    partial class RPGDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170810221857_AddParameterlessConstructor")]
+    partial class AddParameterlessConstructor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")

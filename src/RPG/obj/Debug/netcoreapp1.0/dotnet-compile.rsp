@@ -209,6 +209,7 @@ C:\Users\epicodus\Source\Repos\RPG\src\RPG\Startup.cs
 C:\Users\epicodus\Source\Repos\RPG\src\RPG\Controllers\AccountController.cs
 C:\Users\epicodus\Source\Repos\RPG\src\RPG\Controllers\ItemController.cs
 C:\Users\epicodus\Source\Repos\RPG\src\RPG\Controllers\LocationController.cs
+C:\Users\epicodus\Source\Repos\RPG\src\RPG\Controllers\PlayerController.cs
 C:\Users\epicodus\Source\Repos\RPG\src\RPG\Controllers\RPGController.cs
 C:\Users\epicodus\Source\Repos\RPG\src\RPG\Migrations\20170809163344_Initial.cs
 C:\Users\epicodus\Source\Repos\RPG\src\RPG\Migrations\20170809163344_Initial.Designer.cs
@@ -216,6 +217,12 @@ C:\Users\epicodus\Source\Repos\RPG\src\RPG\Migrations\20170809205816_AddItemsAnd
 C:\Users\epicodus\Source\Repos\RPG\src\RPG\Migrations\20170809205816_AddItemsAndLocationsTablesWith1ToMany.Designer.cs
 C:\Users\epicodus\Source\Repos\RPG\src\RPG\Migrations\20170810160725_BeginRefactorForManyToMany.cs
 C:\Users\epicodus\Source\Repos\RPG\src\RPG\Migrations\20170810160725_BeginRefactorForManyToMany.Designer.cs
+C:\Users\epicodus\Source\Repos\RPG\src\RPG\Migrations\20170810221342_AddApplicationUser.cs
+C:\Users\epicodus\Source\Repos\RPG\src\RPG\Migrations\20170810221342_AddApplicationUser.Designer.cs
+C:\Users\epicodus\Source\Repos\RPG\src\RPG\Migrations\20170810221857_AddParameterlessConstructor.cs
+C:\Users\epicodus\Source\Repos\RPG\src\RPG\Migrations\20170810221857_AddParameterlessConstructor.Designer.cs
+C:\Users\epicodus\Source\Repos\RPG\src\RPG\Migrations\20170810223147_AddObsolete.cs
+C:\Users\epicodus\Source\Repos\RPG\src\RPG\Migrations\20170810223147_AddObsolete.Designer.cs
 C:\Users\epicodus\Source\Repos\RPG\src\RPG\Migrations\RPGDbContextModelSnapshot.cs
 C:\Users\epicodus\Source\Repos\RPG\src\RPG\Models\ApplicationUser.cs
 C:\Users\epicodus\Source\Repos\RPG\src\RPG\Models\Item.cs

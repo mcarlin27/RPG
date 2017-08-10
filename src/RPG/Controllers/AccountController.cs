@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using RPG.Models;
 using System.Threading.Tasks;
 using RPG.ViewModels;
+using System.Linq;
 
 namespace RPG.Controllers
 {
@@ -35,6 +36,12 @@ namespace RPG.Controllers
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                 string userId = user.Id;
+                var player = new Player(userId);
+                player.ApplicationUser = user;
+                PlayerController pController = new PlayerController();
+                IActionResult aResult = pController.Create(player);
+
                 return RedirectToAction("Index");
             }
             else
@@ -53,7 +60,7 @@ namespace RPG.Controllers
         {
 
             Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
-            System.Console.WriteLine(result.Succeeded + "*******************************");
+            
             if (result.Succeeded)
             {
                 return RedirectToAction("Index");
@@ -63,11 +70,11 @@ namespace RPG.Controllers
                 return View();
             }
         }
-        //[HttpPost]
-        //public async Task<IActionResult> LogOff()
-        //{
-        //    await _signInManager.SignOutAsync();
-        //    return RedirectToAction("Index");
-        //}
+        [HttpPost]
+        public async Task<IActionResult> LogOff()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index");
+        }
     }
 }

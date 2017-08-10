@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.Generic; 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using System;
 namespace RPG.Models
 {
     [Table("Players")]
@@ -14,19 +14,22 @@ namespace RPG.Models
         public int Health { get; set; }
         public int Strength { get; set; }
         public int LocationId { get; set; }
-        public virtual ApplicationUser ApplicationUser { get; set; }
-        public virtual List<PlayerItem> PlayerItems { get; set; }
+        public string UserId { get; set; }
+        public virtual ICollection<PlayerItem> PlayerItems { get; set; }
         public virtual Location PlayerLocation { get; set; }
-
-        public Player()
+        public virtual ApplicationUser ApplicationUser { get; set; }
+        [Obsolete("Only needed for serialization and materialization", true)]
+        public Player() { }
+        public Player(string userId)
         {
+            this.UserId = userId;
         }
-        public Player(string name)
-        {
-            Name = name;
-            Avatar = new byte[0];
-            Health = 100;
-            LocationId = 1;
-        }
+        //public Player(string name, int location)
+        //{
+        //    Name = name;
+        //    Avatar = new byte[0];
+        //    Health = 100;
+        //    LocationId = location;
+        //}
     }
 }
