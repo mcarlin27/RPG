@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace RPG.Models
 {
-    [Table("UserItems")]
-    public class UserItem
+    [Table("PlayerItems")]
+    public class PlayerItem
     {
         [Key]
-        public int ApplicationUserId { get; set; }
-        [Key]
+        public int InventoryId { get; set; }
+        public int PlayerId { get; set; }
         public int ItemId { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
+        public Player Player { get; set; }
         public Item Item { get; set; }
 
 

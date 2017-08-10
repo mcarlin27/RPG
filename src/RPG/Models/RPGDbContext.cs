@@ -15,27 +15,32 @@ namespace RPG.Models
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<Location> Locations { get; set; }
-        public DbSet<UserItem> UserItems { get; set; }
+        public DbSet<Player> Players { get; set; }
+        public DbSet<PlayerItem> PlayerItems { get; set; }
         public RPGDbContext(DbContextOptions options) : base(options)
         {
 
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<UserItem>()
-                .HasKey(ui => new { ui.ApplicationUserId, ui.ItemId });
+            builder.Entity<Player>()
+                .HasKey(p => p.PlayerId);
+            builder.Entity<Item>()
+                .HasKey(i => i.ItemId);
+            builder.Entity<Location>()
+                .HasKey(l => l.LocationId);
+            builder.Entity<PlayerItem>()
+                .HasKey(pi => pi.InventoryId);
+            builder.Entity<PlayerItem>()
+                .HasOne(p => p.Player)
+                .WithMany(a => a.PlayerItems)
+                .HasForeignKey(pi => pi.PlayerId);
+            builder.Entity<PlayerItem>()
+                .HasOne(p => p.Item)
+                .WithMany(i => i.PlayerItems)
+                .HasForeignKey(pi => pi.ItemId);
 
-            builder.Entity<UserItem>()
-                .HasOne(ui => ui.ApplicationUser)
-                .WithMany(u => u.UserItems)
-                .HasForeignKey(ui => ui.ApplicationUserId);
-
-            builder.Entity<UserItem>()
-                .HasOne(ui => ui.Item)
-                .WithMany(u => u.UserItems)
-                .HasForeignKey(ui => ui.ItemId);
             base.OnModelCreating(builder);
-
         }
         
     }

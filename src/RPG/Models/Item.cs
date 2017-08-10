@@ -10,17 +10,11 @@ namespace RPG.Models
     [Table("Items")]
     public class Item
     {
-        //public Item()
-        //{
-        //    this.ApplicationUsers = new HashSet<ApplicationUser>();
-        //}
-
         [Key]
         public int ItemId { get; set; }
         public string Name { get; set; }
         public int LocationId { get; set; }
         public virtual Location ItemLocation { get; set; }
-        //public virtual ICollection<ApplicationUser> ApplicationUsers { get; set; }
-        //public virtual ICollection<UserItem> UserItems { get; set; }
+        public virtual List<PlayerItem> PlayerItems { get; set; }
     }
 }
